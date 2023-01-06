@@ -1,5 +1,6 @@
 //import * as perso from './module/class.js';
 import * as instance from './module/instances.js';
+import * as funct from './module/function.js';
 
 //boss
 console.log(instance.boss);
@@ -28,4 +29,11 @@ while (instance.boss.pv > 0) {
         }       
       }  
     });
+    //Le boss tape un perso aleatoire
+    if (instance.boss.pv > 0) {
+        let heroAleatoire = funct.randArr(team);
+        console.log(`${heroAleatoire.nom} va etre attaqué!`);
+        heroAleatoire.pv -= instance.boss.pa;
+        console.log(`Il reste ${heroAleatoire.pv}PV a ${heroAleatoire.nom}`);
+    }
 }
