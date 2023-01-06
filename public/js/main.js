@@ -26,15 +26,17 @@ while (instance.boss.pv > 0) {
             //energie/conso perso
             switch (element) {
                 case instance.guerrier:
-                    if (element.rage < 4) {
+                    if (element.rage <= 3) {
                         element.rage ++ ;
-                        element.pa = 10;
-                        console.log(`La rage de ${element.nom} est passée à ${element.rage}`);
-                    } else {
-                        element.rage = 0;
-                        element.pa *= 1.25;
-                        console.log(``);
-                    }
+                        if(element.rage >=4) {
+                            element.pa *= 1.25;
+                            console.log(`La rage de ${element.nom} est passée à ${element.rage}, il passe en Berserk, il aura ${element.pa} d'attaque pour le prochain tour`);
+                            element.rage = 0;
+                        } else {
+                            element.pa = 10;
+                            console.log(`La rage de ${element.nom} est passée à ${element.rage}`);
+                        }                
+                    } 
                     
                     break;
                 case instance.mage:
