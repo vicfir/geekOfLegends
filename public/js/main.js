@@ -14,23 +14,18 @@ console.log(instance.archer);
 
 let team = [instance.guerrier, instance.mage, instance.archer];
 
+//Boucle generale
 while (instance.boss.pv > 0) {
+    //Chacque perso tape a son tour
     team.forEach(element => {
       if (instance.boss.pv > 0) {
-        console.log(`${element.nom} frape ${instance.boss.nom}`);
+        console.log(`${element.nom} frappe ${instance.boss.nom}`);
         instance.boss.pv -= element.pa;
         if (instance.boss.pv <= 0) {
-            console.log(`${instance.boss.nom} est mort`);
+            console.log(`${instance.boss.nom} est MORT`);
         } else {
             console.log(`${instance.boss.nom} a ${instance.boss.pv}PV`);
-        }
-        
+        }       
       }  
     });
-    // instance.boss.pv -= instance.guerrier.pa;
-    // console.log(instance.boss.pv);
-    // instance.boss.pv -= instance.mage.pa;
-    // console.log(instance.boss.pv);
-    // instance.boss.pv -= instance.archer.pa;
-    // console.log(instance.boss.pv);
 }
