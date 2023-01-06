@@ -20,9 +20,11 @@ while (instance.boss.pv > 0) {
         console.log(`${element.nom} frape ${instance.boss.nom}`);
         instance.boss.pv -= element.pa;
         if (instance.boss.pv <= 0) {
-            console.log(`${}`);
+            console.log(`${instance.boss.nom} est mort`);
+        } else {
+            console.log(`${instance.boss.nom} a ${instance.boss.pv}PV`);
         }
-        console.log(`${instance.boss.nom} a ${instance.boss.pv}PV`);
+        
       }  
     });
     // instance.boss.pv -= instance.guerrier.pa;
