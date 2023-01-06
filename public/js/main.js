@@ -22,12 +22,14 @@ while (instance.boss.pv > 0) {
         //tant que le boss est en vie
         if (instance.boss.pv > 0) {
             console.log(`${element.nom} frappe ${instance.boss.nom}`);
-            instance.boss.pv -= element.pa;
+            // instance.boss.pv -= element.pa;
             //energie/conso perso
             switch (element) {
                 case instance.guerrier:
+                    instance.boss.pv -= element.pa;
                     if (element.rage <= 3) {
                         element.rage ++ ;
+                        //bonus attaque
                         if(element.rage >=4) {
                             element.pa *= 1.25;
                             console.log(`La rage de ${element.nom} est passée à ${element.rage}, il passe en Berserk, il aura ${element.pa} d'attaque pour le prochain tour`);
@@ -37,13 +39,23 @@ while (instance.boss.pv > 0) {
                             console.log(`La rage de ${element.nom} est passée à ${element.rage}`);
                         }                
                     } 
+                    break;
+
+                case instance.mage:
+                    //attaque si assez de mana
+                    if (element.mana < 2) {
+                        console.log(`${element.nom} n'as plus assez de mana pour attaquer, il doit attendre le tour suivant`);
+                        element.mana = 7;
+                    } else {
+                        instance.boss.pv -= element.pa;
+                        element.mana -= 2 ;
+                        console.log(`Le mana de ${element.nom} est passé à ${element.mana}`);
+                    }
                     
                     break;
-                case instance.mage:
-                    element.mana -= 2 ;
-                    console.log(`Le mana de ${element.nom} est passé à ${element.mana}`);
-                    break;
+
                 case instance.archer:
+                    instance.boss.pv -= element.pa;
                     element.fleche -- ;
                     console.log(`Il reste ${element.fleche} à ${element.nom}`);
                     break;
