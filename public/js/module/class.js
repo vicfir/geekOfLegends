@@ -11,7 +11,7 @@ export class Boss extends Base {
         super(nom,pv,pa);
     }
     enigme(){
-
+        
     }
 }
 

@@ -6,6 +6,7 @@ export function randArr(array) {
     return randValue;
 }
 
+//attaque guerrier
 export function bastonGuerrier(element) {
     instance.boss.pv -= element.pa;
     if (element.rage <= 3) {
@@ -22,6 +23,7 @@ export function bastonGuerrier(element) {
     } 
 }
 
+//attaque mage
 export function bastonMage(element) {
     if (element.mana < 2) {
         console.log(`${element.nom} n'as plus assez de mana pour attaquer, il doit attendre le tour suivant`);
@@ -33,6 +35,7 @@ export function bastonMage(element) {
     }   
 }
 
+//attaque archer
 export function bastonArcher(element){
     if (element.fleche < 2) {
         console.log(`${element.nom} n'as plus assez de flèches, il doit attendre le tour suivant`);
@@ -43,4 +46,12 @@ export function bastonArcher(element){
         console.log(`Il reste ${element.fleche} flèches à ${element.nom}`);
         element.fleche ++;
     }
+}
+
+//attaque boss
+export function bastonBoss(element){
+    let heroAleatoire = randArr(element);
+    console.log(`${heroAleatoire.nom} va etre attaqué!`);
+    heroAleatoire.pv -= instance.boss.pa;
+    console.log(`Il reste ${heroAleatoire.pv}PV a ${heroAleatoire.nom}`);
 }

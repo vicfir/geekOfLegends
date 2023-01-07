@@ -18,10 +18,12 @@ let team = [instance.guerrier, instance.mage, instance.archer];
 //Boucle generale
 while (instance.boss.pv > 0) {
     //Chacque perso tape a son tour
+    // suivi pv
+    console.log(`${instance.guerrier.nom} PV:${instance.guerrier.pv} Rage:${instance.guerrier.rage} | ${instance.mage.nom} PV:${instance.mage.pv} Mana:${instance.mage.mana} | ${instance.archer.nom} PV:${instance.archer.pv} Flèches:${instance.archer.fleche} || ${instance.boss.nom} PV:${instance.boss.pv}`);
     team.forEach(element => {
         //tant que le boss est en vie
         if (instance.boss.pv > 0) {
-            console.log(`${element.nom} frappe ${instance.boss.nom}`);
+            console.log(`Action : ${element.nom} frappe ${instance.boss.nom} -> ${instance.boss.nom} ${instance.boss.pv}PV - ${element.pa}PV`);
             //attaque hero
             switch (element) {
                 case instance.guerrier:
@@ -51,15 +53,12 @@ while (instance.boss.pv > 0) {
             }
         }
 
-        console.log("--------------------");
+        console.log(".");
     });
     
     //Le boss tape un perso aleatoire
     if (instance.boss.pv > 0) {
-        let heroAleatoire = funct.randArr(team);
-        console.log(`${heroAleatoire.nom} va etre attaqué!`);
-        heroAleatoire.pv -= instance.boss.pa;
-        console.log(`Il reste ${heroAleatoire.pv}PV a ${heroAleatoire.nom}`);
+        funct.bastonBoss(team);
     }
     console.log('********************************************');
 }
