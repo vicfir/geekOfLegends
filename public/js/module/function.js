@@ -51,7 +51,13 @@ export function bastonArcher(element){
 //attaque boss
 export function bastonBoss(element){
     let heroAleatoire = randArr(element);
-    console.log(`${heroAleatoire.nom} va etre attaqué!`);
+    let cimptiere = [];
+    console.log(`Action : ${instance.boss.nom} frappe ${heroAleatoire.nom} -> ${heroAleatoire.pv}PV - ${instance.boss.pa}PV`);
     heroAleatoire.pv -= instance.boss.pa;
     console.log(`Il reste ${heroAleatoire.pv}PV a ${heroAleatoire.nom}`);
+    //Defaite si tout le monde mort
+    if (heroAleatoire.pv <= 0) {
+        cimptiere = element.splice(element.indexOf(heroAleatoire), 1);
+    }
+    
 }
