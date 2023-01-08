@@ -12,7 +12,7 @@ export class Boss extends Base {
     constructor(nom, pv, pa){
         super(nom,pv,pa);
     }
-    enigme(element){
+    enigme(element, enigme){
         let enigme1 = "Qu'est-ce qui peut être dans la mer et dans le ciel ?";
         let enigme2 = "Qu'est ce qui est plus grand que la Tour Eiffel, mais infiniment moins lourd ?";
         let enigme3 = "Qu'est-ce qui commence la nuit et termine le matin ?";
@@ -28,11 +28,15 @@ export class Boss extends Base {
 
         let repEnigme = prompt(`${this.nom} est tombé à moins de 20% de ses PV. Vous avez 3 essai pour survivre. ${randEnigme}`);
 
+        enigme = false;
+
         for (let index = 0; index <= 2; index++) {
             if (index == 2) {
                 element = [];
-                console.log(`ERROR ${element.length}`);
                 
+                console.log(`ERROR ${element.length}`);
+                console.log(enigme);
+                return enigme = true;
                 
                 // alert("Vous avez perdu !!!");
                 
@@ -53,10 +57,22 @@ export class Hero extends Base {
     constructor(nom, pv, pa){
         super(nom,pv,pa);
     }
-    defense(){
-
+    defense(condition){
+        if (condition == "start") {
+            this.pa *= 0.5;
+            this.pv *= 2.5;
+        } else if (condition == "end") {
+            this.pa /= 0.5;
+            this.pv /= 2.5;
+        }
     }
-    attaque(){
-
+    attaque(condition){
+        if (condition == "start") {
+            this.pa *= 1.4;
+            this.pv *= 0.75;
+        } else if (condition == "end") {
+            this.pa /= 1.4;
+            this.pv /= 0.75;
+        }
     }
 }
