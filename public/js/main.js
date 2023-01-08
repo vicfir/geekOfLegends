@@ -15,9 +15,11 @@ console.log(instance.archer);
 
 let team = [instance.guerrier, instance.mage, instance.archer];
 
+let pvBossBase = instance.boss.pv;
+
 //Boucle generale
 while (instance.boss.pv > 0) {
-    
+
 
     if (instance.boss.pv > 0) {
          // suivi pv
@@ -27,7 +29,7 @@ while (instance.boss.pv > 0) {
         //Chacque perso tape a son tour
         team.forEach(element => {
             //tant que le boss est en vie
-            if (instance.boss.pv > 0) {
+            if (instance.boss.pv > 0 && team.length != 0) {
                 console.log(`Action : ${element.nom} frappe ${instance.boss.nom} -> ${instance.boss.nom} ${instance.boss.pv}PV - ${element.pa}PV`);
                 //attaque hero
                 switch (element) {
@@ -49,6 +51,10 @@ while (instance.boss.pv > 0) {
                     default:
                         console.log("error");
                         break;
+                }
+                //lancement enigme boss -20%pv
+                if (instance.boss.pv <= pvBossBase/5 && instance.boss.pv > 0 && team.length != 0){
+                    instance.boss.enigme(team);
                 }
                 //VICTOIRE
                 if (instance.boss.pv <= 0) {
