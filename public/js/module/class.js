@@ -17,21 +17,23 @@ export class Boss extends Base {
         let enigme2 = "Qu'est ce qui est plus grand que la Tour Eiffel, mais infiniment moins lourd ?";
         let enigme3 = "Qu'est-ce qui commence la nuit et termine le matin ?";
 
-        let repEnigme1 = "une étoile";
-        let repEnigme2 = "son ombre";
-        let repEnigme3 = "la lettre n";
+        let repEnigme1 = "étoile";
+        let repEnigme2 = "ombre";
+        let repEnigme3 = "lettre n";
 
         let enigmeTab = [enigme1, enigme2, enigme3];
         let repEnigmeTab = [repEnigme1, repEnigme2, repEnigme3];
 
         let randEnigme = funct.randArr(enigmeTab);
+        let regex = new RegExp(repEnigmeTab[enigmeTab.indexOf(randEnigme)]);
 
         let repEnigme = prompt(`${this.nom} est tombé à moins de 20% de ses PV. Vous avez 3 essai pour survivre. \n- ${randEnigme}`);
+        repEnigme = repEnigme.trim().toLowerCase();
 
         for (let index = 0; index <= 2; index++) {
             if (index == 2) {              
                 return false;
-            } else if (repEnigme == repEnigmeTab[enigmeTab.indexOf(randEnigme)]) {
+            } else if (repEnigme.match(regex)) {
                 index = 3;
                 return true;
                 
