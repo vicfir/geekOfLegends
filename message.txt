@@ -1,43 +1,8 @@
 # GeekOfLegends
 
 
-#### A Savoir sur les boss :
->* une fois le boss à 20% de ses points de vie, il posera à tes personnages (l'utilisateur) une énigme (choisie aléatoirement entre minimum 3 énigmes) à laquelle ils devront répondre en 3 essais au maximum, s'ils échouent, ils mourront, sinon ils vaincront le boss.
-
-
-#### Exemples d'énigmes traditionnelles :
->* Une fois que l'on me prononce, je n'existe plus. Qui suis-je ?
->* Je suis d'eau,je suis d'air,et je suis d'électricité. Qui suis-je ?
-#### Exemples d'énigmes pouvant être obtenu via des commande Javascript :
->* Quel heure est-il ?(écriture informatisée)
->* Quel est l'indice du premier "i" de cette question ?
->* Que fait retourne Math.floor(1.3 * 10) ?
-
->* Le choix du type d'enigme est à votre guise cela peut même être un mix des styles
-
-
-### Les actions :
-  #### Defense :
-  >* Diminue de moitié( * 0.5 ) ses dégats d'attaque mais augmente de deux fois et demi ses points de vie ( * 2.5 ).
-  >* Augmente de deux les chances d'être attaqué par le boss
-
-  #### Attaque
-  >* Augmente de deux cinquième ( * 1.4 ) ses dégats d'attaque mais diminue d'un quart ses points de vie ( * 0.75 )
-
-
-## A Savoir en général :
-
->* L'utilisateur choisi le nom de chaque héros
->* Vous devez fixer un total de point de vies et de points d'attaques que l'utilisateur lui devra distribuer entre ses héros.(faites en sorte qu'il y ait beaucoup d'interaction)
->* L'utilisateur pourra choisir une posture 'attaque' ou 'défense' ou le mode 'normal' rien du tout avant le début du combat.
-
-
 ## Bonus :
 
 >- Pour l'énigme, la réponse de l'utilisateur devra être mise en minuscule et les éventuels espace supprimés (exemple : "Un Marron" => "unmarron"). Il faudra aussi trouver une méthode qui permet de vérifier si la bonne réponse est contenue dans la réponse de l'utilisateur (exemple : bonne réponse = "homme", réponse utilisateur = "les HoMmEs" => la réponse est bonne).
 
 ---------------------------------------------------------------------------------------------------
-1. boucle qui se termine quand le boss a 0 ou moins pv.
-  2. on demande au debut du tour le type de posture
-  3. les heros attaquent
-  4. le boss attaque

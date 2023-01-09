@@ -26,11 +26,10 @@ export class Boss extends Base {
 
         let randEnigme = funct.randArr(enigmeTab);
 
-        let repEnigme = prompt(`${this.nom} est tombé à moins de 20% de ses PV. Vous avez 3 essai pour survivre. ${randEnigme}`);
+        let repEnigme = prompt(`${this.nom} est tombé à moins de 20% de ses PV. Vous avez 3 essai pour survivre. \n- ${randEnigme}`);
 
         for (let index = 0; index <= 2; index++) {
             if (index == 2) {              
-                alert("Vous avez perdu !!!");
                 return false;
             } else if (repEnigme == repEnigmeTab[enigmeTab.indexOf(randEnigme)]) {
                 index = 3;
